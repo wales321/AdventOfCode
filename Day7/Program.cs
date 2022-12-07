@@ -86,12 +86,11 @@ ElfDirectory BuildDirectories(string input, ElfDirectory root, ElfDirectory curr
 
             if (!currentDirectory.Files.Any(x => x.Name == split[1]))
             {
-                var file = new ElfFile
+                currentDirectory.Files.Add(new ElfFile
                 {
                     Name = split[1].Trim(),
                     Size = int.Parse(split[0].Trim())
-                };
-                currentDirectory.Files.Add(file);
+                });
             }
         }
     }
