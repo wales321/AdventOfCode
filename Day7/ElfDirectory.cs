@@ -8,7 +8,7 @@ namespace Day7
 {
     public class ElfDirectory
     {
-        public ElfDirectory(ElfDirectory? parent)
+        public ElfDirectory(ElfDirectory? parent = null)
         {
             Directories = new List<ElfDirectory>();
             Files = new List<ElfFile>();
