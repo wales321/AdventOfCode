@@ -11,14 +11,13 @@ Dictionary<int, int> signalStrengths = new Dictionary<int, int>()
 };
 
 Instruction? currentInstruction = null;
-bool continueCycle = true;
 int pixel = 0;
 int xRegister = 1;
 int cycleCount = 0;
 
-while (continueCycle)
+while (true)
 {
-    PrintToScreen(cycleCount, xRegister);
+    PrintToScreen(xRegister);
     cycleCount++;
 
     if(currentInstruction == null || currentInstruction.Complete)
@@ -31,10 +30,9 @@ while (continueCycle)
         signalStrengths[cycleCount] = cycleCount * xRegister;
 
     xRegister = currentInstruction.ExecuteCycle(xRegister);
-
 }
 
-void PrintToScreen(int cycle, int spriteCenter)
+void PrintToScreen(int spriteCenter)
 {
     var sprite = Enumerable.Range(spriteCenter - 1, 3);
     if (sprite.Contains(pixel))
